@@ -1,12 +1,52 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import Header from '../components/Header';
+import StoryItem from '../components/StoryItem';
+
+const SAMPLE_STORIES = [
+  {
+    title: "Is NixOS truly reproducible?",
+    url: "luj.fr",
+    author: "JulienMalka",
+    time: "22 hours ago",
+    comments: 35,
+    points: 78,
+    tags: ["nix"]
+  },
+  {
+    title: "Building personal software with Claude",
+    url: "blog.nelhage.com",
+    author: "nelhage",
+    time: "14 hours ago",
+    comments: 24,
+    points: 31,
+    tags: ["ai", "practices"]
+  },
+  {
+    title: "Pebble smartwatches open-sourced",
+    url: "opensource.googleblog.com",
+    author: "antonmedv",
+    time: "16 hours ago",
+    comments: 14,
+    points: 66,
+    tags: ["mobile"]
+  }
+];
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="container py-6">
+        <div className="space-y-1">
+          {SAMPLE_STORIES.map((story, index) => (
+            <StoryItem
+              key={index}
+              {...story}
+            />
+          ))}
+        </div>
+      </main>
     </div>
   );
 };
