@@ -1,5 +1,6 @@
 import React from 'react';
-import { Search } from 'lucide-react';
+import { Search, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -34,6 +35,13 @@ const Header = () => {
           </nav>
           
           <div className="flex items-center space-x-2">
+            <Link
+              to="/new"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring h-9 py-2 px-4 bg-white/10 hover:bg-white/20 text-white"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              New Post
+            </Link>
             <button
               className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring h-9 py-2 px-4 hover:bg-white/10 text-white"
             >
