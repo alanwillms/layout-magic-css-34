@@ -1,7 +1,9 @@
 import React from 'react';
 import { ChevronUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface StoryItemProps {
+  id?: string;
   title: string;
   url: string;
   author: string;
@@ -12,6 +14,7 @@ interface StoryItemProps {
 }
 
 const StoryItem: React.FC<StoryItemProps> = ({
+  id = '1', // Default ID for the sample stories
   title,
   url,
   author,
@@ -37,9 +40,9 @@ const StoryItem: React.FC<StoryItemProps> = ({
         </div>
         
         <h3 className="text-base font-medium leading-tight mb-1 group-hover:text-primary/90 transition-colors">
-          <a href={url} className="hover:underline">
+          <Link to={`/post/${id}`} className="hover:underline">
             {title}
-          </a>
+          </Link>
         </h3>
         
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
@@ -47,9 +50,9 @@ const StoryItem: React.FC<StoryItemProps> = ({
           <span>•</span>
           <span>{time}</span>
           <span>•</span>
-          <a href="#" className="hover:text-primary hover:underline transition-colors">
+          <Link to={`/post/${id}`} className="hover:text-primary hover:underline transition-colors">
             {comments} comments
-          </a>
+          </Link>
         </div>
       </div>
     </div>
